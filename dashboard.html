@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-green-50 to-green-100 min-h-screen flex flex-col items-center justify-center">
+  <div class="max-w-3xl w-full bg-white shadow-2xl rounded-xl p-8 border">
+    <!-- Welcome Section -->
+    <div class="flex items-center space-x-6 mb-8">
+      <img 
+        id="profilePicture" 
+        class="w-24 h-24 rounded-full border border-gray-300" 
+        alt="Profile Picture">
+      <div>
+        <h1 id="fullName" class="text-2xl font-bold text-gray-800"></h1>
+        <p id="email" class="text-gray-600"></p>
+        <p id="username" class="text-gray-500 text-sm"></p>
+      </div>
+    </div>
+
+    <!-- Balance Section -->
+    <div class="bg-green-100 rounded-lg p-6 text-center">
+      <h2 class="text-xl font-bold text-gray-800 mb-2">Account Balance</h2>
+      <p id="balance" class="text-3xl font-bold text-green-600"></p>
+    </div>
+    
+    <!-- Logout Button -->
+    <div class="mt-6 text-center">
+      <button onclick="logout()" class="bg-red-500 text-white py-2 px-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+      </button>
+    </div>
+  </div>
+  
+  <div class="p-6">
+    <!-- Navigation Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <!-- ACCOUNT -->
+      <a href="dashboard.html" class="bg-red-500 text-white rounded-lg shadow-lg flex flex-col items-center justify-center p-6 font-bold text-center hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-user-circle text-4xl mb-2"></i>
+        <span>ACCOUNT</span>
+      </a>
+      <!-- FUND TRANSFER -->
+      <a href="dashboard.html" class="bg-blue-500 text-white rounded-lg shadow-lg flex flex-col items-center justify-center p-6 font-bold text-center hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-exchange-alt text-4xl mb-2"></i>
+        <span>FUND TRANSFER</span>
+      </a>
+      <!-- PAYMENT -->
+      <a href="dashboard.html" class="bg-green-500 text-white rounded-lg shadow-lg flex flex-col items-center justify-center p-6 font-bold text-center hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-credit-card text-4xl mb-2"></i>
+        <span>PAYMENT</span>
+      </a>
+      <!-- INVESTMENT -->
+      <a href="dashboard.html" class="bg-yellow-500 text-white rounded-lg shadow-lg flex flex-col items-center justify-center p-6 font-bold text-center hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-chart-line text-4xl mb-2"></i>
+        <span>INVESTMENT</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Announcement Box -->
+  <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+    <h2 class="text-xl font-bold mb-2 text-gray-800">Service Announcement!!!</h2>
+    <p class="text-lg font-semibold text-gray-800 mb-2">Hi, <span id="firstName" class="text-red-600 font-bold text-xl"></span> </p>
+    <p class="text-green-600 font-bold mb-4">We are going GREEN!</p>
+    <p class="text-gray-700">
+      In our effort to go paperless and to preserve the environment, we will be converting your hardcopy account statements to e-statements starting 2nd March, 2025*.
+      With e-statements, you can view and save your statements online anytime and anywhere, at your convenience.
+    </p>
+    <p class="mt-4 text-gray-700">
+      For Amro Bank Online users, if you prefer to continue receiving hardcopy statements via post, please log onto Amro Bank Online to change the settings
+      after 3th March, 2025 onwards or contact Amro Bank for assistance.
+    </p>
+    <p class="mt-4 text-gray-700 italic">
+      *Applicable to Amro Bank Online users only. Currently, this service is only applicable for Current/Savings Account, Multi Currency Account & Credit Card.
+    </p>
+  </div>
+
+
+<div  class="overflow-x-auto">
+  <div class="overflow-x-auto">
+    <table class="min-w-full table-auto border-collapse bg-white rounded-lg shadow-lg">
+      <thead class="bg-gray-800 text-white">
+        <tr>
+          <th class="px-6 py-4 text-left text-lg font-medium">Date</th>
+          <th class="px-6 py-4 text-left text-lg font-medium">Description</th>
+          <th class="px-6 py-4 text-left text-lg font-medium">Amount</th>
+          <th class="px-6 py-4 text-left text-lg font-medium">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+
+</div>
+<script>
+  const transactions = [
+    { date: '2025-02-06', description: 'Bank Deposit', amount: 20000, type: 'credit' },
+    { date: '2025-02-05', description: 'Transfer to Account', amount: -15000, type: 'debit' },
+    { date: '2025-02-04', description: 'ATM Withdrawal', amount: -5000, type: 'debit' },
+    { date: '2025-02-03', description: 'Online Purchase', amount: -20000, type: 'debit' },
+    { date: '2025-02-02', description: 'Deposit', amount: 25000, type: 'credit' },
+    { date: '2025-02-01', description: 'Deposit', amount: 10000, type: 'credit' },
+    { date: '2025-01-31', description: 'Bank Transfer', amount: 30000, type: 'credit' },
+    { date: '2025-01-30', description: 'Utility Charges', amount: -1000, type: 'debit' },
+    { date: '2025-01-29', description: 'Wire Transfer', amount: 15000, type: 'credit' },
+    { date: '2025-01-28', description: 'Credit Card Payment', amount: -12000, type: 'debit' },
+    { date: '2025-01-27', description: 'Deposit', amount: 25000, type: 'credit' },
+    { date: '2025-01-26', description: 'Bank Fee', amount: -500, type: 'debit' },
+    { date: '2025-01-25', description: 'Wire Transfer', amount: 35000, type: 'credit' },
+    { date: '2025-01-24', description: 'Subscription Charges', amount: -100, type: 'debit' },
+    { date: '2025-01-23', description: 'Salary Credit', amount: 50000, type: 'credit' },
+    { date: '2025-01-22', description: 'ATM Withdrawal', amount: -2500, type: 'debit' },
+    { date: '2025-01-21', description: 'Deposit', amount: 15000, type: 'credit' },
+    { date: '2025-01-20', description: 'Late Fee', amount: -200, type: 'debit' },
+    { date: '2025-01-19', description: 'Deposit', amount: 12000, type: 'credit' },
+    { date: '2025-01-18', description: 'Interest Charge', amount: -300, type: 'debit' }
+  ];
+
+  const tableBody = document.querySelector("tbody");
+
+  transactions.forEach(transaction => {
+    const row = document.createElement("tr");
+    row.classList.add("border-b", "hover:bg-gray-50");
+
+    const statusClass = transaction.type === 'credit' ? 'text-green-600' : 'text-red-600';
+    const icon = transaction.type === 'credit' ? 'fas fa-arrow-up' : 'fas fa-arrow-down';
+    const formattedAmount = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(Math.abs(transaction.amount));
+
+    row.innerHTML = `
+      <td class="px-6 py-4 text-sm text-gray-700">${transaction.date}</td>
+      <td class="px-6 py-4 text-sm text-gray-700">${transaction.description}</td>
+      <td class="px-6 py-4 text-sm ${statusClass} font-semibold">${formattedAmount}</td>
+      <td class="px-6 py-4 text-sm ${statusClass} flex items-center space-x-2">
+        <i class="${icon} text-xl"></i>
+        <span>${transaction.type === 'credit' ? 'Credit' : 'Charge'}</span>
+      </td>
+    `;
+    tableBody.appendChild(row);
+  });
+</script>
+  <script>
+    // Retrieve user data from session storage
+    const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+    if (!loggedInUser) {
+      // Redirect to login if no user is logged in
+      window.location.href = "login.html";
+    } else {
+      // Populate user data in the dashboard
+      const profilePicture = document.getElementById("profilePicture");
+      const fullName = document.getElementById("fullName");
+      const email = document.getElementById("email");
+      const username = document.getElementById("username");
+      const balance = document.getElementById("balance");
+
+      profilePicture.src = loggedInUser.profilePicture || "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=";
+      profilePicture.alt = `${loggedInUser.firstName} ${loggedInUser.lastName}`;
+
+      fullName.textContent = `${loggedInUser.firstName} ${loggedInUser.lastName}`;
+      email.textContent = loggedInUser.email;
+      username.textContent = `Username: ${loggedInUser.username}`;
+      balance.textContent = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+}).format(loggedInUser.balance);;
+      firstName.textContent = ` ${loggedInUser.firstName}`
+    }
+
+    // Logout function
+    function logout() {
+      // Clear session storage
+      sessionStorage.removeItem("loggedInUser");
+      // Redirect to login page
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
