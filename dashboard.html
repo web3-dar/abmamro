@@ -333,97 +333,109 @@
 
             <aside>
 
-                <div class="transfer_money_section">
-                    <p class="title">quick transfer</p>
-                    <div class="button_group">
-                      <button
-                        class="via_no active"
-                        aria-label="via_no"
-                        onclick="toggleForm('mobile')"
-                      >
-                        via mobile no.
-                      </button>
-                      <button
-                        class="via_ac"
-                        aria-label="via_ac"
-                        onclick="toggleForm('account')"
-                      >
-                        via account no.
-                      </button>
+              <div class="transfer_money_section">
+                <p class="title">quick transfer</p>
+                <div class="button_group">
+                  <button
+                    class="via_no active"
+                    aria-label="via_no"
+                    onclick="toggleForm('mobile')"
+                  >
+                    via mobile no.
+                  </button>
+                  <button
+                    class="via_ac"
+                    aria-label="via_ac"
+                    onclick="toggleForm('account')"
+                  >
+                    via account no.
+                  </button>
+                </div>
+              
+                <!-- Error Pop-Up Card -->
+                <div id="errorCard" class="popup-card" style="display: none;">
+                  <div class="popup-content">
+                    <p class="popup-title">Error</p>
+                    <p class="popup-message">Account is pending verification.</p>
+                    <button class="popup-close" onclick="closePopup()">Close</button>
+                  </div>
+                </div>
+              
+                <!-- Loading Screen -->
+                <div id="loadingScreen" style="display: none; text-align: center;">
+                  <p>Loading...</p>
+                </div>
+              
+                <!-- OTP Input -->
+                <div id="otpSection" style="display: none; text-align: center;">
+                  <p>Enter OTP</p>
+                  <input type="text" id="otpInput" placeholder="Enter OTP" />
+                  <button onclick="verifyOtp()">Submit</button>
+                </div>
+              
+                <!-- Mobile Number Form -->
+                <form id="mobile_form" onsubmit="return handleSubmit(event)">
+                  <div class="phone_no_info">
+                    <label for="phone_no">&nbsp;+1 </label>
+                    <input type="number" name="phone_no" id="phone_no" placeholder="929-349-9331" />
+                  </div>
+              
+                  <div class="amount">
+                    <div>
+                      <label for="rupees">$</label>
+                      <input type="number" name="amount" id="rupees" placeholder="500,550.00" />
                     </div>
-                  
-                    <!-- Error Pop-Up Card -->
-                    <div id="errorCard" class="popup-card" style="display: none;">
-                      <div class="popup-content">
-                        <p class="popup-title">Error</p>
-                        <p class="popup-message">Account is pending verification.</p>
-                        <button class="popup-close" onclick="closePopup()">Close</button>
-                      </div>
+                    <span>USD</span>
+                  </div>
+                  <div>
+                    <button class="formSubmit" type="submit">Send</button>
+                  </div>
+                </form>
+              
+                <!-- Account Number Form -->
+                <form id="account_form" onsubmit="return handleSubmit(event)" style="display: none;">
+                  <div class="account_info">
+                    <label for="account_no">Account Number</label>
+                    <input
+                      type="number"
+                      name="account_no"
+                      id="account_no"
+                      placeholder="Enter account number"
+                      required
+                    />
+                  </div>
+                  <div class="account_info">
+                    <label for="routine_no">Routine Number</label>
+                    <input
+                      type="number"
+                      name="routine_no"
+                      id="routine_no"
+                      placeholder="Enter routine number"
+                      required
+                    />
+                  </div>
+                  <div class="ifsc_info">
+                    <label for="ifsc_code">IBAN</label>
+                    <input
+                      type="text"
+                      name="ifsc_code"
+                      id="ifsc_code"
+                      placeholder="optional"
+                    />
+                  </div>
+                  <div class="amount">
+                    <div>
+                      <label for="rupees">$</label>
+                      <input type="number" name="amount" id="rupees" placeholder="500,550.00" required />
                     </div>
-                  
-                    <!-- Mobile Number Form -->
-                    <form id="mobile_form" onsubmit="return handleSubmit(event)">
-                      <div class="phone_no_info">
-                        <label for="phone_no">&nbsp;+1 </label>
-                        <input type="number" name="phone_no" id="phone_no" placeholder="929-349-9331" />
-                      </div>
-                  
-                      <div class="amount">
-                        <div>
-                          <label for="rupees">$</label>
-                          <input type="number" name="amount" id="rupees" placeholder="500,550.00" />
-                        </div>
-                        <span>USD</span>
-                      </div>
-                      <div>
-                        <button class="formSubmit" type="submit"> Send </button>
-                      </div>
-                    </form>
-                  
-                    <!-- Account Number Form -->
-                    <form id="account_form" onsubmit="return handleSubmit(event)" style="display: none;">
-                      <div class="account_info">
-                        <label for="account_no">Account Number</label>
-                        <input
-                          type="number"
-                          name="account_no"
-                          id="account_no"
-                          placeholder="Enter account number"
-                          required
-                        />
-                      </div>
-                      <div class="account_info">
-                        <label for="routine_no">Routine Number</label>
-                        <input
-                          type="number"
-                          name="routine_no"
-                          id="routine_no"
-                          placeholder="Enter routine number"
-                          required
-                        />
-                      </div>
-                      <div class="ifsc_info">
-                        <label for="ifsc_code">IBAN</label>
-                        <input
-                          type="text"
-                          name="ifsc_code"
-                          id="ifsc_code"
-                          placeholder="optional"
-                        />
-                      </div>
-                      <div class="amount">
-                        <div>
-                          <label for="rupees">$</label>
-                          <input type="number" name="amount" id="rupees" placeholder="500,550.00" required />
-                        </div>
-                        <span>USD</span>
-                      </div>
-                      <div>
-                        <button class="formSubmit" type="submit"> Send </button>
-                      </div>
-                    </form>
-                    </div>
-
+                    <span>USD</span>
+                  </div>
+                  <div>
+                    <button class="formSubmit" type="submit">Send</button>
+                  </div>
+                </form>
+              </div>
+              
                 <div class="cards">
                     <div class="title_with_button">
                         <p class="title">your cards</p>
@@ -655,7 +667,47 @@ document.getElementById("currentDate").textContent = `Today | ${formattedDate}`;
       errorCard.style.display = "none";
     }
   </script>
+<script>
+  const otp = "123456"; // Predefined OTP for testing
 
+  function toggleForm(formType) {
+    const mobileForm = document.getElementById("mobile_form");
+    const accountForm = document.getElementById("account_form");
+    if (formType === "mobile") {
+      mobileForm.style.display = "block";
+      accountForm.style.display = "none";
+    } else {
+      mobileForm.style.display = "none";
+      accountForm.style.display = "block";
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const loadingScreen = document.getElementById("loadingScreen");
+    const otpSection = document.getElementById("otpSection");
+
+    // Show loading screen
+    loadingScreen.style.display = "block";
+
+    // Simulate a delay for loading
+    setTimeout(() => {
+      loadingScreen.style.display = "none"; // Hide loading screen
+      otpSection.style.display = "block"; // Show OTP input
+    }, 2000);
+  }
+
+  function verifyOtp() {
+    const userOtp = document.getElementById("otpInput").value;
+    if (userOtp === otp) {
+      // alert("OTP verified successfully!");
+      // Proceed with the next step or close the OTP section
+      document.getElementById("otpSection").style.display = "none";
+    } else {
+      // alert("Incorrect OTP. Please try again.");
+    }
+  }
+</script>
 
 </body>
 </html>
