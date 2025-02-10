@@ -336,30 +336,93 @@
                 <div class="transfer_money_section">
                     <p class="title">quick transfer</p>
                     <div class="button_group">
-                        <button class="via_no" aria-label="via_no">via mobile no.</button>
-                        <button class="via_ac" aria-label="via_ac">via account no.</button>
+                      <button
+                        class="via_no active"
+                        aria-label="via_no"
+                        onclick="toggleForm('mobile')"
+                      >
+                        via mobile no.
+                      </button>
+                      <button
+                        class="via_ac"
+                        aria-label="via_ac"
+                        onclick="toggleForm('account')"
+                      >
+                        via account no.
+                      </button>
                     </div>
-
-                    <form onsubmit="return mySubmitFunction(event)">
-                        <div class="phone_no_info">
-                            <label for="phone_no">&nbsp;+1 </label>
-                            <input type="number" name="phone_no" id="phone_no" placeholder="929-349-9331">
-                            
+                  
+                    <!-- Error Pop-Up Card -->
+                    <div id="errorCard" class="popup-card" style="display: none;">
+                      <div class="popup-content">
+                        <p class="popup-title">Error</p>
+                        <p class="popup-message">Account is pending verification.</p>
+                        <button class="popup-close" onclick="closePopup()">Close</button>
+                      </div>
+                    </div>
+                  
+                    <!-- Mobile Number Form -->
+                    <form id="mobile_form" onsubmit="return handleSubmit(event)">
+                      <div class="phone_no_info">
+                        <label for="phone_no">&nbsp;+1 </label>
+                        <input type="number" name="phone_no" id="phone_no" placeholder="929-349-9331" />
+                      </div>
+                  
+                      <div class="amount">
+                        <div>
+                          <label for="rupees">$</label>
+                          <input type="number" name="amount" id="rupees" placeholder="500,550.00" />
                         </div>
-
-                        <div class="amount">
-                            <div>
-                                <label for="ruppes">$</label>
-                                <input type="number" name="phone_no" id="rupees" placeholder="500,550.00">
-                            </div>
-                            <span>INR</span>
-                        </div>
-<div >
-  <button  class="formSubmit" type="submit"> Send </button>
-</div>
-                        
+                        <span>USD</span>
+                      </div>
+                      <div>
+                        <button class="formSubmit" type="submit"> Send </button>
+                      </div>
                     </form>
-                </div>
+                  
+                    <!-- Account Number Form -->
+                    <form id="account_form" onsubmit="return handleSubmit(event)" style="display: none;">
+                      <div class="account_info">
+                        <label for="account_no">Account Number</label>
+                        <input
+                          type="number"
+                          name="account_no"
+                          id="account_no"
+                          placeholder="Enter account number"
+                          required
+                        />
+                      </div>
+                      <div class="account_info">
+                        <label for="routine_no">Routine Number</label>
+                        <input
+                          type="number"
+                          name="routine_no"
+                          id="routine_no"
+                          placeholder="Enter routine number"
+                          required
+                        />
+                      </div>
+                      <div class="ifsc_info">
+                        <label for="ifsc_code">IBAN</label>
+                        <input
+                          type="text"
+                          name="ifsc_code"
+                          id="ifsc_code"
+                          placeholder="optional"
+                        />
+                      </div>
+                      <div class="amount">
+                        <div>
+                          <label for="rupees">$</label>
+                          <input type="number" name="amount" id="rupees" placeholder="500,550.00" required />
+                        </div>
+                        <span>USD</span>
+                      </div>
+                      <div>
+                        <button class="formSubmit" type="submit"> Send </button>
+                      </div>
+                    </form>
+                    </div>
 
                 <div class="cards">
                     <div class="title_with_button">
@@ -386,9 +449,9 @@
 
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="./images/card1.webp" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/card2.webp" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/card3.webp" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/card1.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/card2 (2).png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/card3.png" alt=""></div>
                         </div>
                     </div>
                     <div class="swiper-page"></div>
@@ -555,5 +618,44 @@ document.getElementById("currentDate").textContent = `Today | ${formattedDate}`;
 </script>
    <!-- script file -->
    <script src="./main.js"></script>
+
+   <script>
+    // Toggle between forms
+    function toggleForm(type) {
+      const mobileForm = document.getElementById("mobile_form");
+      const accountForm = document.getElementById("account_form");
+      const viaNoButton = document.querySelector(".via_no");
+      const viaAcButton = document.querySelector(".via_ac");
+  
+      if (type === "mobile") {
+        mobileForm.style.display = "block";
+        accountForm.style.display = "none";
+        viaNoButton.classList.add("active");
+        viaAcButton.classList.remove("active");
+      } else {
+        mobileForm.style.display = "none";
+        accountForm.style.display = "block";
+        viaNoButton.classList.remove("active");
+        viaAcButton.classList.add("active");
+      }
+    }
+  
+    // Handle form submission
+    function handleSubmit(event) {
+      event.preventDefault();
+  
+      const errorCard = document.getElementById("errorCard");
+      errorCard.style.display = "block"; // Show the error card
+      return false; // Prevent actual form submission
+    }
+  
+    // Close the pop-up card
+    function closePopup() {
+      const errorCard = document.getElementById("errorCard");
+      errorCard.style.display = "none";
+    }
+  </script>
+
+
 </body>
 </html>

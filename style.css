@@ -930,3 +930,143 @@ form input[type="submit"]:hover {
     }
 
 }
+
+
+
+  .button_group button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+  }
+
+  .button_group button.active {
+    background-color: #6200ea;
+    color: white;
+  }
+
+  .amount,
+  .phone_no_info,
+  .account_info,
+  .ifsc_info {
+    margin-bottom: 15px;
+  }
+
+  .formSubmit {
+    padding: 10px 20px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+   /* General Styling */
+   .transfer_money_section {
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .button_group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .button_group button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .via_no.active,
+  .via_ac.active {
+    background-color: #6a5acd;
+    color: white;
+  }
+  .via_no,
+  .via_ac {
+    background-color: #f0f0f0;
+  }
+
+  /* Pop-Up Card Styling */
+  .popup-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 2px solid #6a5acd;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  .popup-content {
+    padding: 20px;
+    text-align: center;
+  }
+  .popup-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6a5acd;
+    margin-bottom: 10px;
+  }
+  .popup-message {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .popup-close {
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .popup-close:hover {
+    background-color: #483d8b;
+  }
+
+  /* Form Styling */
+  form {
+    margin-top: 20px;
+  }
+  form div {
+    margin-bottom: 15px;
+  }
+  label {
+    font-weight: bold;
+  }
+  input {
+    padding: 10px;
+    width: calc(100% - 20px);
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+  }
+  .formSubmit {
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .formSubmit:hover {
+    background-color: #483d8b;
+  }
+
