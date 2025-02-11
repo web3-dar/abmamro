@@ -261,7 +261,7 @@
                             </div>
                         </div>
 
-                        <p class="transaction_value">$1,250.60</p>
+                        <p class="transaction_value">€24.33</p>
                     </div>
 
                     <div class="transaction_data">
@@ -272,17 +272,17 @@
                                     <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="#24cca7" /></svg>
                             </span>
                             <div class="trasaction_details">
-                                <p class="transaction_metadata">Received via paypal from <span>Inueron</span></p>
-                                <p>Project payment</p>
+                                <p class="transaction_metadata">Received via Wire transfer from <span>Zomato</span></p>
+                                <p>Inheritance payment</p>
                             </div>
                         </div>
 
-                        <p class="transaction_value">$42,840.00</p>
+                        <p class="transaction_value">€24,273,531.33</p>
                     </div>
 
                 </div>
 
-                <div class="transaction_info">
+                <!-- <div class="transaction_info">
 
                     <div class="transaction_date">
                         Yesterday | 21nd jan, 2020
@@ -302,7 +302,7 @@
                             </div>
                         </div>
 
-                        <p class="transaction_value">$13,250.60</p>
+                        <p class="transaction_value">€13,250.60</p>
                     </div>
 
                     <div class="transaction_data">
@@ -318,10 +318,10 @@
                             </div>
                         </div>
 
-                        <p class="transaction_value">$1,342,840.00</p>
+                        <p class="transaction_value">€1,342,840.00</p>
                     </div>
 
-                </div>
+                </div> -->
 
                 <button class="show_more" aria-label="show_more">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -382,10 +382,10 @@
               
                   <div class="amount">
                     <div>
-                      <label for="rupees">$</label>
+                      <label for="rupees">€</label>
                       <input type="number" name="amount" id="rupees" placeholder="500,550.00" />
                     </div>
-                    <span>USD</span>
+                    <span>EUR</span>
                   </div>
                   <div>
                     <button class="formSubmit" type="submit">Send</button>
@@ -425,10 +425,10 @@
                   </div>
                   <div class="amount">
                     <div>
-                      <label for="rupees">$</label>
+                      <label for="rupees">€</label>
                       <input type="number" name="amount" id="rupees" placeholder="500,550.00" required />
                     </div>
-                    <span>USD</span>
+                    <span>EUR</span>
                   </div>
                   <div>
                     <button class="formSubmit" type="submit">Send</button>
@@ -588,7 +588,7 @@
       username.textContent = ` ${loggedInUser.username}`;
       balance.textContent = new Intl.NumberFormat('en-US', {
   style: 'currency',
-  currency: 'USD',
+  currency: 'EUR',
 }).format(loggedInUser.balance);;
       firstName.textContent = ` ${loggedInUser.firstName}`
     }
